@@ -15,6 +15,7 @@ public:
             if (map.find(target - nums[i]) != map.end()) {
                 return { map[target - nums[i]], i };
             }
+            // Store number and its index
             map[nums[i]] = i;
         }
         return {};
