@@ -3,7 +3,9 @@
 
 using namespace std;
 
-
+/*
+Assume that there is only one combination in the nums
+*/
 class Solution{
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
