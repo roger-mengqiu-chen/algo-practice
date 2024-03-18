@@ -35,7 +35,7 @@ public:
             }
             pre = num;
         }
-        if (result < 0) result = -result;
+
         return result;
     }
 };
