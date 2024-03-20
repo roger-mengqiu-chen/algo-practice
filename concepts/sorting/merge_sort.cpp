@@ -9,9 +9,9 @@ class MergeSort
 private:
     void merge(int* arr, int left, int mid, int right)
     {
-        int l[mid - left + 2];
+        int* l = new int[mid - left + 2];
         copy(arr + left, arr + mid + 1, l);
-        int r[right - mid + 1];
+        int* r = new int[right - mid + 1];
         copy(arr + mid + 1, arr + right + 1, r);
 
         l[mid - left + 1] = INT_MAX;  // sentinel
@@ -32,6 +32,9 @@ private:
                 j++;
             }
         }
+
+        delete[] l;
+        delete[] r;
     }
 
     void merge_without_sentinel(int* arr, int left, int mid, int right)

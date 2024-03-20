@@ -4,10 +4,10 @@
 
 using namespace std;
 
-class RomanNumber
+class Solution
 {
 public:
-    int solution(string s)
+    int romanNumber(string s)
     {
         int result = 0;
         int pre = 0;
@@ -39,11 +39,3 @@ public:
         return result;
     }
 };
-
-int main()
-{
-    string s = "MCMXCIV";
-    RomanNumber r;
-    cout << r.solution(s) << endl;
-    return 0;
-}
