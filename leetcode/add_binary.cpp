@@ -46,7 +46,6 @@ int main()
     string b = "1";
     Solution s;
     string res = s.addBinary(a, b);
-    string expect = "10101";
     
     cout << res << endl;
     return 0;
