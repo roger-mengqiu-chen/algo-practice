@@ -33,7 +33,7 @@ public:
         return res;
     }
 
-    // Because we have a small amount of characters, using string will comsume less memory and have almost the same performance. 
+    // Because we have a small amount of characters, using string will consume less memory and have almost the same performance. 
     // Not going to show the implementation here.
 };
 
