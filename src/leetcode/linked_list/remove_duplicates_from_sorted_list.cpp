@@ -27,6 +27,21 @@ public:
         }
         return head;
     }   
+
+    // The solution below is from leetcode and only uses 1 pointer
+    ListNode* deleteDuplicates2(ListNode* head)
+    {
+        ListNode* curr = head;
+        while(curr)
+        {
+            while (curr->next && curr->val == curr->next->val)
+            {
+                curr->next = curr->next->next;
+            }
+            curr = curr->next;
+        }
+        return head;
+    }
 };
 
 int main()
