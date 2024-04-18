@@ -18,6 +18,25 @@ public:
         }
         return res;
     }
+
+    int maxRenvenue(vector<int>& prices) {
+        vector<int>changes;
+        for(int i = 1; i < prices.size(); i++) {
+            changes.push_back(prices[i] - prices[i-1]);
+        }
+
+        int maxSub = changes[0];
+        int cur = 0;
+
+        for(int n : changes) {
+            if(cur < 0) {
+                cur = 0;
+            }
+            cur += n;
+            maxSub = max(maxSub, cur);
+        }
+        return maxSub;
+    }
 };
 
 int main() {
