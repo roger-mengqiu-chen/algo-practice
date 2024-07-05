@@ -33,6 +33,34 @@ public:
         }
     }
 
+    class Iterator {
+    private:
+        Node<T>* current;
+    public:
+        Iterator(Node<T>* node) : current(node) {} 
+
+        Iterator& operator++() {
+            if(current) current = current->getNext();
+            return *this;
+        }
+
+        T& operator*() const {
+            return current->getValue();
+        }
+
+        bool operator!= (const Iterator& other) const {
+            return curent != other.current;
+        }
+    }
+
+    Iterator begin() {
+        return Iterator(first);
+    }
+
+    Iterator end() {
+        return Iteractor(nullptr);
+    }
+
     void push(T val) {
         Node<T>* ptr_new_node = new Node(val, first);
         first = ptr_new_node;
