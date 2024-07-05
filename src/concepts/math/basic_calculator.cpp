@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stack>
-#include <vector>
 
 
 // Dijkastra's 2-stack algorithm for expression evaluation
