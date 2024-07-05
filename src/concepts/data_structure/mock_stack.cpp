@@ -11,7 +11,7 @@ public:
     ~Node() {}
     Node* getNext() { return next; }
     void setNext(Node* n) { next = n; } 
-    T getValue() {return value;}
+    const T& getValue() const { return value; }
 };
 
 
@@ -44,21 +44,21 @@ public:
             return *this;
         }
 
-        T& operator*() const {
+        const T& operator*() const {
             return current->getValue();
         }
 
         bool operator!= (const Iterator& other) const {
-            return curent != other.current;
+            return current != other.current;
         }
-    }
+    };
 
     Iterator begin() {
         return Iterator(first);
     }
 
     Iterator end() {
-        return Iteractor(nullptr);
+        return Iterator(nullptr);
     }
 
     void push(T val) {
@@ -82,3 +82,14 @@ public:
 
     int getSize() const { return size; }
 };
+
+
+int main() {
+    Stack<int> s;
+    s.push(1);
+    s.push(2);
+    s.push(1);
+    Stack<int>::Iterator i = s.begin();
+    std::cout << *i << std::endl;
+    return 0;
+}
