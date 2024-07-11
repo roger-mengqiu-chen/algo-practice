@@ -1,18 +1,5 @@
 #include <iostream>
-
-
-template<typename T>
-class Node {
-private:
-    T value;
-    Node* next;
-public:
-    Node(T v, Node* n = nullptr) : value(v), next(n) {};
-    ~Node() {}
-    Node* getNext() { return next; }
-    void setNext(Node* n) { next = n; } 
-    const T& getValue() const { return value; }
-};
+#include "node.hpp"
 
 
 template<typename T>
