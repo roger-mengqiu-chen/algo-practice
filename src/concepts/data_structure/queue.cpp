@@ -65,6 +65,24 @@ public:
             cur = next;
         }
     }
+
+    Node<T>* reverse(Node<T>* first) {
+        if (first == nullptr) return nullptr;
+        Node<T>* second = first->getNext();
+        if (second == nullptr) return first;
+        Node<T>* rest = reverse(second);
+        second->setNext(first);
+        first->setNext(nullptr);
+        return rest;
+    }
+
+    void recursive_reverse() {
+        if(first != nullptr) {
+            last = first;
+            first = reverse(first);
+            last->setNext(nullptr);
+        }
+    }
 };
 
 
@@ -73,7 +91,7 @@ int main() {
     q.enqueue(1);
     q.enqueue(2);
     q.enqueue(3);
-    q.reverse();
+    q.recursive_reverse();
     std::cout << q.dequeue() << std::endl;
     std::cout << q.dequeue() << std::endl;
     std::cout << q.dequeue() << std::endl;
