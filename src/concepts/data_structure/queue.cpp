@@ -52,6 +52,19 @@ public:
         size--;
         return result;
     }
+
+    void reverse() {
+        if (size == 0 || size == 1) return;
+
+        Node<T>* cur = first->getNext();
+        first->setNext(nullptr);
+        while (cur != nullptr) {
+            Node<T>* next = cur->getNext();
+            cur->setNext(first);
+            first = cur;
+            cur = next;
+        }
+    }
 };
 
 
@@ -60,6 +73,7 @@ int main() {
     q.enqueue(1);
     q.enqueue(2);
     q.enqueue(3);
+    q.reverse();
     std::cout << q.dequeue() << std::endl;
     std::cout << q.dequeue() << std::endl;
     std::cout << q.dequeue() << std::endl;
