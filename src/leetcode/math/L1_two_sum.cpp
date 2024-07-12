@@ -1,5 +1,7 @@
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
+
 
 using namespace std;
 
@@ -19,5 +21,23 @@ public:
             map[nums[i]] = i;
         }
         return {};
+    }
+};
+
+
+class CountTwoSumEqualsZero{
+public:
+    int count(vector<int> arr) {
+        sort(arr.begin(), arr.end());
+        int n = arr.size();
+        int c = 0;
+        for (int i = 0; i < n; i++) {
+            if (i > 0 && arr[i] == arr[i-1]) continue;
+
+            auto it = std::lower_bound(arr.begin() + i + 1, arr.end(), -arr[i]);
+
+            if(it != arr.end() && *it == -arr[i]) c++;
+        }
+        return c;
     }
 };
