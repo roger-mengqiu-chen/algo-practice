@@ -41,8 +41,6 @@ public:
 
 
 class ShellSort {
-private:
-    int gap;
 
 public:
     void sort(vector<int>& arr , int gap) {
