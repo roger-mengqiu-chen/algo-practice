@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream> 
 
 using namespace std;
 
@@ -37,3 +38,37 @@ public:
         arr[j + 1] = last;
     }
 };
+
+
+class ShellSort {
+private:
+    int gap;
+
+public:
+    void sort(vector<int>& arr , int gap) {
+        int n = arr.size();
+        for (int gap = n / 2; gap > 0; gap /=0) {
+            for (int i = gap; i < n; i++) {
+                int key = arr[i];
+                int j = i - gap;
+                while (j >= 0 && arr[i] > key) {
+                    arr[j + gap] = arr[i];
+                    j -= gap;
+                }
+                arr[j + gap] = key;
+            }
+        }
+    }
+};
+
+
+int main() {
+    std::vector<int> v = {5,4,3,2,1};
+    ShellSort s;
+    s.sort(v, 3);
+    for (int i : v) {
+        std::cout << i << " "; 
+    }
+    std::cout << std::endl;
+    return 0;
+}
